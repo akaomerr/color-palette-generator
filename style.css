@@ -2,9 +2,24 @@
     display: flex;
     justify-content: center;
     align-items: center;
-    height: 100vh;
+    height: 50vh;
 }
 .list-centered{
     display: flex;
     justify-content: center;
 }
+.image-div {
+    max-width: 35%;
+    margin: 0 auto; 
+    text-align: center; 
+    padding-top: 50px;
+}
+@media (max-width:860px){
+    .image-div {
+        max-width: 280px;
+        margin: 0 auto; 
+        text-align: center; 
+        padding-top: 50px;
+    }
+}
+

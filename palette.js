@@ -1,7 +1,7 @@
 const fileInput = document.getElementById('fileInput');
 const imageCanvas = document.getElementById('imageCanvas');
 const colorList = document.getElementById('colorList');
-const confirmButton = document.getElementById('confirmButton');
+const confirmButton = document.getElementById('confirmButton'); 
 
 fileInput.addEventListener('change', () => {
     confirmButton.style.display = 'block';
@@ -25,7 +25,9 @@ confirmButton.addEventListener('click', () => {
     reader.onload = function(event) {
         const image = new Image();
         image.src = event.target.result;
-
+        const selectedImage = document.getElementById('imageCanvas');
+        selectedImage.src = image.src;
+        selectedImage.style.display = 'block';
         image.onload = function() {
             imageCanvas.width = image.width;
             imageCanvas.height = image.height;
@@ -61,10 +63,13 @@ confirmButton.addEventListener('click', () => {
             }
 
             colorList.innerHTML = selectedColors.map(color => {
-                const div = document.createElement('div');
-                div.style.backgroundColor = color;
-                div.textContent = color;
-                return div.outerHTML;
+                const color_list = document.createElement('li');
+                color_list.className="list-group-item d-flex justify-content-between align-items-center";
+                color_list.textContent=color;
+                color_list.style.padding="30px";
+                color_list.style.color="white";
+                color_list.style.backgroundColor=color;
+                return color_list.outerHTML;
             }).join('');
         };
     };
